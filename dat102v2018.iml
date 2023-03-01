@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/BSTre/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BSTre/test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BalanseringU/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DobbelKjedetOrdnetListeMidtPekerFyllUt/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/EnumArbeidsdag/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/EnumSjanger/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Generisk/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/HaugU/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Kalkulator/Test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Kalkulator/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Karakter/Test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Karakter/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/KjedetStabelMedUnntak/TestStabel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/KjedetStabelMedUnntak/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabyrintMedRekursjon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/LabyrintUtenRekursjon/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ListeOrdnetU/TestOrdnetListe" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ListeOrdnetU/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/MengdeU/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SimuleringU/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SorteringOgSoekingFyllUt/TestSortering" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SorteringOgSoekingFyllUt/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Stabel/Test" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Stabel/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TabellStabelMedUnntak/TestStabel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TabellStabelMedUnntak/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TabellStabelUtenUnntak/TestStabel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TabellStabelUtenUnntak/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TekstFil/src" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="JavaSE-12" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
