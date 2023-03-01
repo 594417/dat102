@@ -2,7 +2,7 @@ package no.hvl.dat102.klient;
 
 import no.hvl.dat102.kjedet.DobbelKjedetOrdnetListe;
 
-public class Oppg_d {
+public class Oppg_2d {
 
 	public static void main(String[] args) {
 
