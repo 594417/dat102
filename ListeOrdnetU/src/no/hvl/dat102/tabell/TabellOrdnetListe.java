@@ -25,7 +25,10 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 			throw new EmptyCollectionException("ordnet liste");
 
 		T resultat = null;
-		// ... Fyll ut
+		resultat = liste[bak];
+		liste[bak] = null;
+		bak--;
+
 		return resultat;
 	}
 
@@ -34,8 +37,14 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 		if (erTom())
 			throw new EmptyCollectionException("ordnet liste");
 
-		T resultat = null;
-		// ... Fyll ut
+		T resultat = liste[0];
+		bak--;
+
+		for (int i = 0; i < bak; i++) 
+			liste[i] = liste[i+1];
+
+		liste[bak] = null;
+
 		return resultat;
 	}
 
@@ -52,9 +61,9 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	public T siste() {
 		if (erTom())
 			throw new EmptyCollectionException("ordnet liste");
-		
+
 		T resultat = null;
-		// ...Fyll ut
+		resultat = liste[bak-1];
 
 		return resultat;
 	}
@@ -72,9 +81,22 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	@Override
 	public void leggTil(T element) {
 
-		// ...Fyll ut
-	}
-
+		if (bak == liste.length) utvid();
+		int i = 0;
+		
+		while (i < bak && element.compareTo(liste[i]) > 0) {
+			i++;
+		}
+		
+		while (bak > i) {
+			liste[bak] = liste[bak-i];
+			bak--;
+		}
+		
+		liste[i] = element;
+		bak++;
+}
+	
 	@Override
 	public boolean inneholder(T element) {
 		return (finn(element) != IKKE_FUNNET);
@@ -82,14 +104,30 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 
 	@Override
 	public T fjern(T element) {
-		// ...Fyll ut
-		return element;
+		
+		T resultat = null;
+		int indeks = finn(element);
 
+		resultat = liste[indeks];
+		liste[indeks] = liste[bak-1];
+		liste[bak] = null;
+
+		indeks--;
+
+		return resultat;
 	}
+
 
 	private int finn(T el) {
 		int i = 0, resultat = IKKE_FUNNET;
-		// ...Fyll ut
+
+		if (!erTom())
+			while (resultat == IKKE_FUNNET && i < bak)
+				if (el.equals(liste[i]))
+					resultat = i;
+				else
+					i++;
+
 		return resultat;
 	}
 

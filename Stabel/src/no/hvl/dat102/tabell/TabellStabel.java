@@ -28,40 +28,42 @@ public class TabellStabel<T> implements StabelADT<T> {
 	}
 
 	/*******************************************************************
-	 * Legger til det spesifiserte elementet på toppen av stabelen, utvider
-	 * kapasiteten til stabelen hvis nødvendig.
+	 * Legger til det spesifiserte elementet pï¿½ toppen av stabelen, utvider
+	 * kapasiteten til stabelen hvis nï¿½dvendig.
 	 *******************************************************************/
 	@Override
 	public void push(T element) {
 		if(topp == stabel.length-1)
 			utvid();
-		//a Fyll ut
+		topp++;
+		stabel[topp]=element;
 	}
 
 	/*******************************************************************
 	 * 
-	 * Fjerner toppelementet og returnereret referansen. Hvis stabelen tom fra før,
+	 * Fjerner toppelementet og returnereret referansen. Hvis stabelen tom fra fï¿½r,
 	 * kastes unntak
 	 *******************************************************************/
 	@Override
 	public T pop() {
 		if (erTom())
 			throw new EmptyCollectionException("Stabel");
-		//b Fyll ut
-		return null;
+		T resultat = stabel[topp];
+		stabel[topp] = null;
+		topp--;
+		return resultat;
 	}
 
 	/*******************************************************************
-	 * Returnerer toppelementet uten å fjerne det. Hvis stabelen er tom fra før,
+	 * Returnerer toppelementet uten ï¿½ fjerne det. Hvis stabelen er tom fra fï¿½r,
 	 * returneres null-ref.
 	 *******************************************************************/
 	@Override
 	public T peek() {
 		if (erTom())
 			throw new EmptyCollectionException("Stabel");
-       //c Fyll ut
-		return null;
-		
+		return stabel[topp];
+
 	}
 
 	/*******************************************************************
@@ -73,7 +75,7 @@ public class TabellStabel<T> implements StabelADT<T> {
 	}
 
 	/*******************************************************************
-	 * Oppretter en ny tabell for å lagre innholdet.
+	 * Oppretter en ny tabell for ï¿½ lagre innholdet.
 	 *******************************************************************/
 	private void utvid() {
 		T[] hjelpeTabell = (T[]) (new Object[stabel.length * 2]);

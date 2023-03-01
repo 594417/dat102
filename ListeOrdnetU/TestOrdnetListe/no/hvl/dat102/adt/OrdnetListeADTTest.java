@@ -73,8 +73,18 @@ public abstract class OrdnetListeADTTest {
 	 */
 	@Test
 	public final void viseOrdnetIkkeAvtagende() {
-		// ... Fyll ut
-		// ... Legg til elementer og bruk fjernFoerste
+		liste.leggTil(e5);
+		liste.leggTil(e2);
+		liste.leggTil(e3);
+		liste.leggTil(e1);
+		liste.leggTil(e4);
+		liste.leggTil(e0);
+		assertEquals(e5, liste.fjernFoerste());
+		assertEquals(e1, liste.fjernFoerste());
+		assertEquals(e4, liste.fjernFoerste());
+		assertEquals(e3, liste.fjernFoerste());
+		assertEquals(e2, liste.fjernFoerste());
+		assertEquals(e0, liste.fjernFoerste());
 	}
 
 	@Test
@@ -98,12 +108,16 @@ public abstract class OrdnetListeADTTest {
 	 */
 	@Test
 	public final void leggTilOgfjernMedDuplikater() {
-		// ... Fyll ut med å legge til passende elementer
-
+		liste.leggTil(e2);
+		liste.leggTil(e4);
+		liste.leggTil(e1);
+		liste.leggTil(e5);
+		liste.leggTil(e0);
+		liste.leggTil(e3);
 		assertEquals(e0, liste.fjern(e0));
 		assertEquals(e1, liste.fjern(e1));
 		assertEquals(e4, liste.fjern(e4));
-		assertEquals(e1, liste.fjern(e1));
+		assertEquals(e5, liste.fjern(e5));
 		assertEquals(e2, liste.fjern(e2));
 		assertEquals(e3, liste.fjern(e3));
 
@@ -119,7 +133,6 @@ public abstract class OrdnetListeADTTest {
 		liste.leggTil(e4);
 		liste.leggTil(e0);
 		liste.leggTil(e3);
-
 		assertTrue(liste.inneholder(e0));
 		assertTrue(liste.inneholder(e1));
 		assertTrue(liste.inneholder(e2));
@@ -143,15 +156,27 @@ public abstract class OrdnetListeADTTest {
 	}
 
 	/**
-	 * Tester om leggTil-fjern på en tom liste gir en tom liste.
+	 * Tester om leggTil-fjern pï¿½ en tom liste gir en tom liste.
 	 */
 	@Test
 	public final void leggTilFjernErTom() {
-		// ...Fyll ut. Legg inn elementer og fjern de
+		liste.leggTil(e4);
+		liste.leggTil(e1);
+		liste.leggTil(e2);
+		liste.leggTil(e0);
+		liste.leggTil(e3);
+		liste.leggTil(e5);
+		assertEquals(e0, liste.fjern(e0));
+		assertEquals(e1, liste.fjern(e1));
+		assertEquals(e4, liste.fjern(e4));
+		assertEquals(e5, liste.fjern(e5));
+		assertEquals(e2, liste.fjern(e2));
+		assertEquals(e3, liste.fjern(e3));
+		assertTrue(liste.erTom());
 	}
 
 	/**
-	 * Prøver å ta ut et element fra en tom liste.
+	 * Prï¿½ver ï¿½ ta ut et element fra en tom liste.
 	 * 
 	 */
 	@Test

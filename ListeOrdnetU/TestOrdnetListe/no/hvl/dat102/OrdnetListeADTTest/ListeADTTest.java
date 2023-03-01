@@ -2,11 +2,12 @@ package no.hvl.dat102.OrdnetListeADTTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.EmptyStackException;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -49,7 +50,7 @@ public abstract class ListeADTTest {
 	 */
 	@Test
 	public final void nyListeErTom() {
-		assertTrue(liste.erTom());
+		Assert.assertTrue(liste.erTom());
 	}
 
 	/**
@@ -79,10 +80,26 @@ public abstract class ListeADTTest {
 	public final void viseOrdnetIkkeAvtagende() {
 		// ... Fyll ut
 		// ... Legg til elementer og bruk fjernFoerste
+		try {
+		liste.leggTil(e5);
+		liste.leggTil(e2);
+		liste.leggTil(e3);
+		liste.leggTil(e1);
+		liste.leggTil(e4);
+		liste.leggTil(e0);
+		assertEquals(e5, liste.fjernFoerste());
+		assertEquals(e1, liste.fjernFoerste());
+		assertEquals(e4, liste.fjernFoerste());
+		assertEquals(e3, liste.fjernFoerste());
+		assertEquals(e2, liste.fjernFoerste());
+		assertEquals(e0, liste.fjernFoerste());
+		} catch(EmptyCollectionException e) {
+			fail("feilet uventet " + e.getMessage());
+		}
 	}
-
+	
 	@Test
-	public final void viseOrdnetIkkeØkende() {
+	public final void viseOrdnetIkkeStigende() {
 		try {
 			liste.leggTil(e1);
 			liste.leggTil(e2);
@@ -96,7 +113,7 @@ public abstract class ListeADTTest {
 			assertEquals(e2, liste.fjernSiste());
 			assertEquals(e1, liste.fjernSiste());
 			assertEquals(e0, liste.fjernSiste());
-		} catch (EmptyCollectionException e) {
+		} catch(EmptyCollectionException e) {
 			fail("feilet uventet " + e.getMessage());
 		}
 	}
@@ -107,8 +124,13 @@ public abstract class ListeADTTest {
 	@Test
 	public final void leggTilOgfjernMedDuplikater() {
 		try {
-			// ... Fyll ut med å legge til passende elementer
-
+			// ... Fyll ut med ï¿½ legge til passende elementer
+			liste.leggTil(e2);
+			liste.leggTil(e4);
+			liste.leggTil(e1);
+			liste.leggTil(e5);
+			liste.leggTil(e0);
+			liste.leggTil(e3);
 			assertEquals(e0, liste.fjern(e0));
 			assertEquals(e1, liste.fjern(e1));
 			assertEquals(e4, liste.fjern(e4));
@@ -131,12 +153,11 @@ public abstract class ListeADTTest {
 		liste.leggTil(e4);
 		liste.leggTil(e0);
 		liste.leggTil(e3);
-
-		assertTrue(liste.inneholder(e0));
-		assertTrue(liste.inneholder(e1));
-		assertTrue(liste.inneholder(e2));
-		assertTrue(liste.inneholder(e3));
-		assertTrue(liste.inneholder(e4));
+		Assert.assertTrue(liste.inneholder(e0));
+		Assert.assertTrue(liste.inneholder(e1));
+		Assert.assertTrue(liste.inneholder(e2));
+		Assert.assertTrue(liste.inneholder(e3));
+		Assert.assertTrue(liste.inneholder(e4));
 		assertFalse(liste.inneholder(e5));
 
 	}
@@ -155,21 +176,39 @@ public abstract class ListeADTTest {
 	}
 
 	/**
-	 * Tester om leggTil-fjern på en tom liste gir en tom liste.
+	 * Tester om leggTil-fjern pï¿½ en tom liste gir en tom liste.
 	 */
 	@Test
 	public final void leggTilFjernErTom() {
 		// ...Fyll ut. Legg inn elementer og fjern de
+		liste.leggTil(e4);
+		liste.leggTil(e1);
+		liste.leggTil(e2);
+		liste.leggTil(e0);
+		liste.leggTil(e3);
+		liste.leggTil(e5);
+		assertEquals(e0, liste.fjern(e0));
+		assertEquals(e1, liste.fjern(e1));
+		assertEquals(e4, liste.fjern(e4));
+		assertEquals(e5, liste.fjern(e5));
+		assertEquals(e2, liste.fjern(e2));
+		assertEquals(e3, liste.fjern(e3));
 	}
 
 	/**
-	 * Prøver å ta ut et element fra en tom liste.
+	 * Prï¿½ver ï¿½ ta ut et element fra en tom liste.
 	 * 
 	 * ... Fyll ut
 	 */
+	@Test
+	public void fjernFraTomListe() {	
+		Assertions.assertThrows(EmptyCollectionException.class, () -> {
+			liste.fjernFoerste();
+		});
+		}
 
 	/**
-	 * Forsøk på å returnere første fra tom liste
+	 * Forsï¿½k pï¿½ ï¿½ returnere fï¿½rste fra tom liste
 	 * 
 	 * @exception EmptyCollectionException expected exception
 	 */

@@ -8,7 +8,7 @@ public class KlientDobbelKjedetListe {
 		String ord[] = { "o", "a", "s", "m", "e", "k", "c" };
 
 		DobbelKjedetOrdnetListe<String> liste = new DobbelKjedetOrdnetListe(new String("AAA"), new String("zzz"));
-		// Klienten bør sjekke på at alle verdiene ligger innenfor grensene
+		// Klienten bï¿½r sjekke pï¿½ at alle verdiene ligger innenfor grensene
 		// Legger data inn i listen
 		for (int i = 0; i < ord.length; i++) {
 			liste.leggTil(ord[i]);
@@ -26,7 +26,7 @@ public class KlientDobbelKjedetListe {
 		// Utskrift etter sletting
 		System.out.println(liste);
 
-		// slette t som ikek fins
+		// slette t som ikke fins
 		liste.fjern("t");
 		System.out.println(liste);
 
