@@ -3,7 +3,7 @@ package parentessjekker;
 public class MainP {
 
 	public static void main(String[] args) {
-		Parentessjekker sjekker = new Parentessjekker();
+		Parentessjekk sjekker = new Parentessjekk();
 		
 		String par = "{[]}()([}){[()]}";
 		boolean svar = sjekker.erBalansert(par);

@@ -1,4 +1,4 @@
-package parentessjekker;
+package no.hvl.dat102.adt;
 
 public interface Parentessjekker {
 
