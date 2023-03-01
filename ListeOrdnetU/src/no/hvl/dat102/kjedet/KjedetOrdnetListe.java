@@ -30,8 +30,9 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 
 		if (foerste == null)
 			siste = null;
+		
 		antall --;
-
+		
 		return resultat;
 	}
 
@@ -46,14 +47,14 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 
 		while (denne.getNeste() != null) {
 			forrige = denne;
-			denne = forrige.getNeste();
+			denne = denne.getNeste();
 		}
 
 		siste = forrige;
 		if (siste == null) 
 			foerste = null;
 		else 
-			siste.setNeste(null);
+			forrige.setNeste(null);
 
 		antall--;
 
@@ -94,24 +95,26 @@ public class KjedetOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 	public void leggTil(T element) {
 		
 		LinearNode <T> node = new LinearNode <T> (element), denne = foerste, forrige = null;
-
+		
 		while (denne != null && element.compareTo(denne.getElement()) > 0) {
 
 			forrige = denne;
 			denne = denne.getNeste();
 
 		}
-
+		
 		if (forrige == null) {
-			node.setNeste(foerste);
 			foerste = node;
-
+			foerste.setNeste(denne);
+			//denne.setNeste(foerste);
+			//foerste = node;
 		} else {
-			node.setNeste(forrige);
-			forrige = node;
-
-		} if (denne == null) {
-			node.setNeste(siste);
+			forrige.setNeste(node);
+			node.setNeste(denne);
+		} 
+		
+		if (denne == null) {
+			//foerste = node;
 			siste = node;
 		}
 		

@@ -44,7 +44,7 @@ public class TabellOrdnetListe<T extends Comparable<T>> implements OrdnetListeAD
 			liste[i] = liste[i+1];
 
 		liste[bak] = null;
-
+		
 		return resultat;
 	}
 
